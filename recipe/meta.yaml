@@ -1,5 +1,5 @@
 {% set name = "lckr_jupyterlab_variableinspector" %}
-{% set version = "3.0.9" %}
+{% set version = "3.1.0" %}
 
 package:
   name: jupyterlab-variableinspector
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 762cbcc40891b42ad5686d9998d8a67da03517a450ba6499613109ce3476ffcd
+  sha256: 0733fff6b78658cc4237076d105c9d19499a204deb1b800ffa65c23d236e722a
 
 build:
   noarch: python
