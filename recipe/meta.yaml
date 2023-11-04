@@ -1,5 +1,5 @@
 {% set name = "lckr_jupyterlab_variableinspector" %}
-{% set version = "3.0.9" %}
+{% set version = "3.1.0" %}
 
 package:
   name: jupyterlab-variableinspector
@@ -7,29 +7,36 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 762cbcc40891b42ad5686d9998d8a67da03517a450ba6499613109ce3476ffcd
+  sha256: 0733fff6b78658cc4237076d105c9d19499a204deb1b800ffa65c23d236e722a
 
 build:
   noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . --install-option="--skip-npm" -vv
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.6
+    - hatch-jupyter-builder >=0.5
+    - hatch-nodejs-version
+    - hatchling >=1.5.0
+    - jupyterlab =4
     - pip
-    - jupyterlab >=3.0.0
-    - jupyter-packaging >=0.7.9,<0.8.0
+    - python >=3.8,<4.0
   run:
-    - python >=3.6
+    - python >=3.8
     - jupyterlab >=3.0.0
 
 test:
+  requires:
+    - jupyterlab =4
+    - pip
   commands:
+    - pip check
+    - jupyter labextension list
     - jupyter labextension list 2>&1 | grep -ie "@lckr/jupyterlab_variableinspector.*OK.*(python, lckr_jupyterlab_variableinspector)"
 
 about:
-  home: https://github.com/lckr/jupyterlab-variableInspector
+  home: https://github.com/jupyterlab-contrib/jupyterlab-variableInspector
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
