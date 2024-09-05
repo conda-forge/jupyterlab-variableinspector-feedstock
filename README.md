@@ -145,6 +145,3 @@ Feedstock Maintainers
 
 * [@fcollonval](https://github.com/fcollonval/)
 
-
-<!-- dummy commit to enable rerendering -->
-
