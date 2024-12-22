@@ -144,4 +144,5 @@ Feedstock Maintainers
 =====================
 
 * [@fcollonval](https://github.com/fcollonval/)
+* [@martinRenou](https://github.com/martinRenou/)
 

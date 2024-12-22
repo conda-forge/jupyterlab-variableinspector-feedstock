@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 9bad61401ef24cbdd4bc000d882038bbdd9d79550f624bd1930978dd56dddf7b
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -21,15 +21,16 @@ requirements:
     - hatchling >=1.5.0
     - jupyterlab =4
     - pip
-    - python >=3.8,<4.0
+    - python {{ python_min }}
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - jupyterlab >=3.0.0
 
 test:
   requires:
     - jupyterlab =4
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
     - jupyter labextension list
